@@ -37,11 +37,18 @@ function newsCatagoriesClicked(id) {
 
 function newsCatagoriesDisplay(getNews) {
     const noFoundNews = document.getElementById('noFound');
+    const newsLength = document.getElementById('AllNewsCounter');
+    newsLength.innerText = "";
     if (getNews.length == 0) {
         noFoundNews.classList.remove('d-none');
     }
     else {
         noFoundNews.classList.add('d-none');
+        const newsPergraph = document.createElement('p');
+        newsPergraph.innerHTML = `
+       <p>${getNews.length} News Found  </p>
+        `
+        newsLength.appendChild(newsPergraph);
     }
     const newsShowContainer = document.getElementById('News-Div');
     newsShowContainer.innerHTML = "";
@@ -105,7 +112,7 @@ function fullNewsModal(fullNewses) {
         const modalFullNewsDiv = document.createElement('div');
         modalFullNewsDiv.innerHTML = `
         <div class=" border rounded-3 bg-light   container my-3" >
-        <div><img src="${fullNews.image_url}" class=" my-3" alt=""  style="height: 220px; width: 340px;">
+        <div><img src="${fullNews.image_url}" class=" my-3" alt=""  style="height: 220px; width: auto;">
         </div>
         <div class="pt-3 ps-4">
             <h4>${fullNews.title}</h4>
