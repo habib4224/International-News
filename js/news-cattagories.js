@@ -3,6 +3,7 @@ function newsCategoriesget() {
     fetch('https://openapi.programming-hero.com/api/news/categories')
         .then(res => res.json())
         .then(data => displayCategories(data))
+        .catch(error => console.log(error))
 }
 
 function displayCategories(data) {
@@ -31,6 +32,7 @@ function newsCatagoriesClicked(id) {
     fetch(url)
         .then(res => res.json())
         .then(data => newsCatagoriesDisplay(data.data))
+        .catch(error => console.log(error))
 }
 
 function newsCatagoriesDisplay(getNews) {
@@ -93,9 +95,7 @@ function getFullNews(id) {
     fetch(fullNewsUrl)
         .then(res => res.json())
         .then(news => fullNewsModal(news.data))
-
-
-    console.log(id)
+        .catch(error => console.log(error))
 }
 
 function fullNewsModal(fullNewses) {
@@ -148,3 +148,4 @@ const spinner = isloading => {
         spinnerSection.classList.add('d-none');
     }
 }
+newsCatagoriesClicked(01);
