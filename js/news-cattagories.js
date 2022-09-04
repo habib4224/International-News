@@ -155,4 +155,6 @@ const spinner = isloading => {
         spinnerSection.classList.add('d-none');
     }
 }
+
+// deafult news show 
 newsCatagoriesClicked(01);
